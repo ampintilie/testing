@@ -26,9 +26,9 @@ spec:
     name: fedora
   runStrategy: Always 6
     template:
-    metadata:
-      labels:
-        network.kubevirt.io/headlessService: headless
+      metadata:
+        labels:
+          network.kubevirt.io/headlessService: headless
     spec:
       domain:
         devices:
