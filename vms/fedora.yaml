@@ -1,30 +1,30 @@
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
-  name: fedora 1
+  name: fedora 
   annotations:
     argocd.argoproj.io/sync-wave: "3"
 spec:
   dataVolumeTemplates:
     - metadata:
-        name: fedora 2
+        name: fedora 
       spec:
         sourceRef:
           kind: DataSource
-          name: fedora 3
+          name: fedora 
           namespace: openshift-virtualization-os-images
         storage:
           accessModes:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 10Gi 4
+              storage: 10Gi
           storageClassName: nfs-storage
   instancetype:
-    name: u1.small 5
+    name: u1.small 
   preference:
     name: fedora
-  runStrategy: Always 6
+  runStrategy: Always
   template:
     metadata:
       labels:
