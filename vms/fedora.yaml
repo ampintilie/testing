@@ -18,7 +18,7 @@ spec:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 10Gi
+              storage: 35Gi
           storageClassName: nfs-storage
   instancetype:
     name: u1.small 
