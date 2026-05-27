@@ -19,7 +19,7 @@ spec:
           resources:
             requests:
               storage: 35Gi
-          storageClassName: nfs-storage
+          storageClassName: ocs-storagecluster-ceph-rbd
   instancetype:
     name: u1.small 
   preference:
