@@ -9,5 +9,5 @@ spec:
   channel: "stable"
   installPlanApproval: Automatic
   name: kubevirt-hyperconverged
-  source: gls-catalog-cs
+  source: redhat-operators
   sourceNamespace: openshift-marketplace
