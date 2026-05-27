@@ -1,0 +1,47 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: fedora 1
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  dataVolumeTemplates:
+    - metadata:
+        name: fedora 2
+      spec:
+        sourceRef:
+          kind: DataSource
+          name: fedora 3
+          namespace: openshift-virtualization-os-images
+        storage:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 10Gi 4
+          storageClassName: nfs-storage
+  instancetype:
+    name: u1.small 5
+  preference:
+    name: fedora
+  runStrategy: Always 6
+    template:
+    metadata:
+      labels:
+        network.kubevirt.io/headlessService: headless
+    spec:
+      domain:
+        devices:
+          autoattachPodInterface: false
+          disks: []
+          interfaces:
+            - masquerade: {}
+              name: default
+      networks:
+        - name: default
+          pod: {}
+      subdomain: headless
+      volumes:
+        - dataVolume:
+            name: fedora
+          name: rootdisk
